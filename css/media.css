@@ -26,6 +26,10 @@
 		word-spacing: 5px;
 		padding-bottom: 10px;
 	}
+	nav a{
+	 	padding: 0 10px;
+	  
+	}
 
 	.menuBurger {
 		display: inline-block;
@@ -40,6 +44,7 @@
 	    height: 5px;
 	    background-color: #fff;
 	    margin: 6px 0;
+	    -webkit-transition: 0.4s;
 	    transition: 0.4s;
 	    display: block;
 	}
@@ -93,8 +98,8 @@
 	}
 
 	.icon-big {
-		margin: auto;
-	    padding: 20px 0;	
+	margin: auto;
+    padding: 20px 0;	
 	}
 
 	.discovery {
@@ -110,6 +115,7 @@
 	}
 
 	.img_future {
+    	-ms-flex-item-align: center;
     	align-self: center;
 	}	
 
@@ -121,9 +127,22 @@
 		display: none;
 	}
 
+	.rate {
+		display: block;
+	}
+
+	input[type=submit] {
+		margin:auto;
+	}
+
 	.footer_container {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
+		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
 		justify-content: center;
 	}
 

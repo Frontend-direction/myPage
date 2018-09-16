@@ -113,6 +113,7 @@ h2:after {
 
 p {
   text-align: justify;
+  line-height: 1.2;
 }
 
 /* ------------------------------------------------------------------ */
@@ -120,7 +121,7 @@ p {
 /* ------------------------------------------------------------------ */
 
 header{
-    background-image: (linear, left top, left bottom, from(rgba(0, 0, 0, 0.7))), to(rgba(0, 0, 0, 0.7)), url(img/hero.JPG);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0 , 0.2))), url(img/hero.JPG);
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0 , 0.2)), url(img/hero.JPG);
     background-size: cover;
     background-position: center;
@@ -131,7 +132,11 @@ header{
 nav ul {
   list-style-type: none;
   padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
 }
 
@@ -152,21 +157,34 @@ nav a:hover {
 }
 
 header .banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 300px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
   position: relative;
 }
 
 header .banner div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   position: absolute;
   top:100px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Kreon';
 }
 
 header div.banner div h1 {
@@ -212,6 +230,7 @@ header div.banner div h1 {
 
 .img_chilhood {
   text-align: center;
+  -ms-flex-item-align: center;
   align-self: center;
 }
 
@@ -219,6 +238,8 @@ header div.banner div h1 {
   display: grid;
   grid-template-columns: 40% 20% 40%;
   grid-row-gap: 5px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   padding-bottom: 15px;
 } 
@@ -232,6 +253,7 @@ header div.banner div h1 {
 .img_background{
    grid-column-start: 2;
    text-align: center;
+   -ms-flex-item-align: center;
    align-self: center;
   }
 
@@ -239,6 +261,8 @@ header div.banner div h1 {
   display: grid;
   grid-template-columns: 40% 20% 40%;
   grid-row-gap: 5px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   padding-bottom: 15px;
 }
@@ -262,6 +286,7 @@ header div.banner div h1 {
 .about_me_text {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    -webkit-column-gap: 15px;
     column-gap: 15px;
     grid-row-gap: 5px;
     padding:0 5%;
@@ -310,12 +335,17 @@ header div.banner div h1 {
     opacity: 0.7;
     width: 100%;
     height: auto;
+    -webkit-transform: scale(1.15);
     transform: scale(1.15);
+    -webkit-transition: -webkit-transform 0.5s;
+    transition: -webkit-transform 0.5s;
     transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 .myPhoto img:hover{
     opacity: 1;
+    -webkit-transform: scale(1);
     transform: scale(1);
 }
 
@@ -330,17 +360,22 @@ fieldset {
  }
 
 .contact_form {
-    
     margin: auto;
 }
 
 .form_input {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .user_name label{
   padding-right: 70px;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
 .user_name,
@@ -353,6 +388,8 @@ fieldset {
 
 .user_email label{
   padding-right: 30px;
+  -ms-flex-item-align: center;
+  align-self: center;
 }
 
 .form-control {
@@ -367,38 +404,74 @@ fieldset {
   resize: none;
 }
 
+::-webkit-input-placeholder {
+    padding-left:  15px;
+}
+
+:-ms-input-placeholder {
+    padding-left:  15px;
+}
+
 ::placeholder {
     padding-left:  15px;
 }
 
-.fa-star {
-  color: #FFFF1B;
-  padding: 5px 0;    
-}
-x-star-rating{
-  font-size: 48px;
-  display: inline-flex;
-  cursor: pointer;
-  padding-bottom: 15px;
-}
-
-x-star-rating > .star:after {
-  content: '\f1df';
-  color: #777;
+.rate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 2%;
 }
 
-x-star-rating > .star.full::after {
-  content: '\f1e0';
-  color: #fd0;
+.rating > span:hover:before {
+   content: "\2605";
+   position: absolute;
 }
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.rate div {
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.4em;
+  font-size: 2em;
+}
+
+.rating > span:hover, .rating > span:hover ~ span {
+    color: yellow;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+
 
 .form_text {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center; 
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;  
 }
 
 .form_text label {
   padding-right: 1%;
+  -ms-flex-item-align: center;
+  align-self: center; 
 }
 
 input[type=submit] {
@@ -408,7 +481,8 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin: auto;
+    display: block;
+    margin-left: 50%;
 }
 
 
@@ -423,25 +497,45 @@ input[type=submit] {
   z-index: -1;
   width: 100%;
   height: 100%;
+  -webkit-box-shadow: 0px 0px 0px 0px;
   box-shadow: 0px 0px 0px 0px;
   color: rgba(132,106,221, 0.5);
 }
 
 .input100:focus + .focus-input100 {
+  -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
   animation: anim-shadow 0.5s ease-in-out forwards;
+}
+
+@-webkit-keyframes anim-shadow {
+  to {
+    -webkit-box-shadow: 0px 0px 60px 25px;
+    box-shadow: 0px 0px 60px 25px;
+    opacity: 0;
+  }
 }
 
 @keyframes anim-shadow {
   to {
+    -webkit-box-shadow: 0px 0px 60px 25px;
     box-shadow: 0px 0px 60px 25px;
     opacity: 0;
   }
 }
 
 input[type=submit]:hover {
+  -webkit-animation-name: background-color;
   animation-name: background-color;
+  -webkit-animation-duration: 500ms;
   animation-duration: 500ms;
+  -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes background-color {
+  100%{
+    background-color: #00A921;
+  }
 }
 
 @keyframes background-color {
@@ -488,6 +582,7 @@ footer{
     text-decoration: none;
     border: 0;
     color: #888;
+    -webkit-transition: color 0.2s;
     transition: color 0.2s;
     transition: color 0.2s;
 }
@@ -505,7 +600,7 @@ footer{
 .fa-google-plus-g,
 .fa-linkedin-in,
 .fa-instagram{
-    transition: color 0.2s;
+    -webkit-transition: color 0.2s;
     transition: color 0.2s;
 }
 
@@ -522,7 +617,7 @@ footer{
 }
 
 .fa-instagram:hover{
-    color: #517fa4;
+    color: #cd486b;
 }
 
 footer p{
